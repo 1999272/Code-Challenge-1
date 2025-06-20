@@ -1,3 +1,8 @@
+const readline = require('readline').createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
 /**
  * CALCULATES MOBILE MONEY TRANSACTION FEES WITH MIN/MAX LIMITS
  * - Basic fee: 1.5% of transaction amount
@@ -6,10 +11,7 @@
  * - User is prompted to enter transaction amount
  * - Displays fee breakdown and total debit amount
  */
-function estimateTransactionFee() {
-    // USER INPUT HANDLING
-    const amountToSend = parseFloat(prompt("Unatuma Ngapi? (KES):")); 
-    
+function estimateTransactionFee(amountToSend) {
     // INPUT VALIDATION
     if (isNaN(amountToSend)) {
         console.log("Tafadhali weka namba halali."); 
@@ -33,8 +35,21 @@ function estimateTransactionFee() {
     const totalDebit = amountToSend + finalFee;
     
     // OUTPUT GENERATION
-    console.log(`Sending KES ${amountToSend}:`);
-    console.log(`Calculated Transaction Fee: KES ${finalFee}`);
-    console.log(`Total amount to be debited: KES ${totalDebit}`);
+    console.log(`\nSending KES ${amountToSend}:`);
+    console.log(`Calculated Transaction Fee: KES ${finalFee.toFixed(2)}`);
+    console.log(`Total amount to be debited: KES ${totalDebit.toFixed(2)}`);
     console.log("\nSend Money Securely!");  
 }
+
+// Get user input
+readline.question("Unatuma Ngapi? (KES): ", (input) => {
+    const amountToSend = parseFloat(input);
+    
+    if (isNaN(amountToSend)) {
+        console.log("Tafadhali weka namba halali.");
+    } else {
+        estimateTransactionFee(amountToSend);
+    }
+    
+    readline.close();
+});

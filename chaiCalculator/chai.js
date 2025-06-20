@@ -1,3 +1,7 @@
+const readline = require('readline').createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
 
 // Function to calculate tea ingredients
 function calculateChaiIngredients(numberOfCups) {
@@ -19,12 +23,14 @@ function calculateChaiIngredients(numberOfCups) {
   console.log("\nEnjoy your Chai Bora!");
 }
 
-// Prompt user for input
-const userInput = prompt("Karibu! How many cups of Chai Bora would you like to make?");
-const numberOfCups = Number(userInput);
+readline.question('Karibu! How many cups of Chai Bora would you like to make? ', (input) => {
+  const numberOfCups = Number(input.trim());
 
-if (!isNaN(numberOfCups) && numberOfCups > 0) {
-  calculateChaiIngredients(numberOfCups);
-} else {
-  console.log("Please enter a valid number of cups.");
-}
+  if (!isNaN(numberOfCups) && numberOfCups > 0) {
+    calculateChaiIngredients(numberOfCups);
+  } else {
+    console.log("Please enter a valid number of cups.");
+  }
+
+  readline.close();
+});
