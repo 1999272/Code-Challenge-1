@@ -105,3 +105,10 @@ MIT License. See [LICENSE](LICENSE) for details.
 - Kenyan tea brewing traditions
 - Boda boda operators nationwide
 - Mobile money payment systems
+
+**Author
+## 👤 Author(s)
+
+**Mark Kamau**  
+- GitHub: [@1999272]((https://github.com/1999272/Code-Challenge-1))  
+- Email: mark.wainaina@student.moringaschool.com 
